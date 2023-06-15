@@ -3,7 +3,6 @@ kind: Pod
 metadata:
   name: datasimulatordemo
 spec:
-  nodeName: ip-172-31-11-89
   hostNetwork: true
   containers:
     - name: datasimulatordemo
@@ -13,5 +12,6 @@ spec:
        - name: http
          containerPort: 3000
          protocol: TCP
+  nodeName: ip-172-31-11-89
   imagePullSecrets:
     - name: regcred
