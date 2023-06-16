@@ -158,7 +158,7 @@ Run the below command to check whether the pods is running in correct node
 
 ```sh
 sudo kubectl get pods -o wide
-``
+```
 
 The output should be similar to the below image
 
