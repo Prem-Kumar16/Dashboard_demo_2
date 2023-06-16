@@ -41,3 +41,143 @@ Go to actions -> download file and paste this path "/home/cloudshell-user/keypai
 If you go to ec2 instances page, you will find two newly created instances named "Dashboard-demo-master" & "Dashboard-demo-worker". SSH into the instances using the key file  that you have previously downloaded
 
 #### Important note, while SSH change the user name from root to ewaol i.e., instead of root@ip.eu-central-1.compute.amazonaws.com, you should use ewaol@ip.eu-central-1.compute.amazonaws.com
+
+### Do the below steps in MASTER ec2 instance (Dashboard-demo-master)
+
+After connected to the instance via SSH, run the below commands in master ec2 instance
+
+Note : Give the access & secret access key to the instance via "aws configure" command & the default region name must be ap-south-1
+
+```sh
+aws configure
+cd Dashboard_demo_2/datasimulator/
+```
+
+Now we need to change the spec.nodeName inside the deployaws.yaml file of both the datasimulator & dashboard folder. Follow the steps below to do that
+
+Run the below command 
+
+```sh
+sudo kubectl get nodes
+```
+
+From the output of the above command, copy the node name 
+
+Now run the below command 
+
+```sh
+sudo vi deployaws.yaml
+```
+
+Inside the vi editor, change the value of nodeName spec (reference image below) to the value that you have previously copied via get node command. (The value is nothing but your master ec2 instance's private ip address)
+
+<img width="374" alt="Screenshot 2023-06-16 121549" src="https://github.com/Prem-Kumar16/Dashboard_demo_2/assets/75419846/f9ab1104-e339-44cb-9047-a2661084b886">
+
+Run the below steps to log into ECR Repository for pulling images from it
+
+```sh
+AWS_DEFAULT_REGION=ap-south-1
+PASS=$(aws ecr get-login-password --region $AWS_DEFAULT_REGION)
+```
+
+Create a kubectl secret 
+
+```sh
+sudo kubectl create secret docker-registry regcred \
+   --docker-server=783584839454.dkr.ecr.ap-south-1.amazonaws.com \
+   --docker-username=AWS \
+   --docker-password=$PASS
+```
+
+The below command helps you to run the pod
+
+```sh
+sudo kubectl apply -f deployaws.yaml -f service.yaml
+```
+
+If you want to know the status of pods, the below commands will help you
+
+```sh
+sudo kubectl get pods
+sudo kubectl describe pods
+```
+
+In your browser, open a new tab and open http://3.7.144.155:3000/
+
+You should see a web page similar to the image below
+
+<img width="960" alt="Screenshot 2023-06-16 122718" src="https://github.com/Prem-Kumar16/Dashboard_demo_2/assets/75419846/6bbc22e8-654a-476a-9e90-5248e3f7a25f">
+
+Run the below command and copy the output which contains the k3s token to link master and worker node 
+
+```sh
+sudo cat /var/lib/rancher/k3s/server/node-token
+```
+
+<img width="778" alt="Screenshot 2023-06-16 124600" src="https://github.com/Prem-Kumar16/Dashboard_demo_2/assets/75419846/cf52a0fb-0c4b-4bc6-b50e-6dc21714f668">
+
+### Do the below steps in WORKER ec2 instance (Dashboard-demo-worker)
+
+Run the command below to link worker node with master node
+
+```sh
+sudo k3s-agent -t <your k3s token here> -s https://3.7.144.155:6443
+```
+
+<img width="938" alt="Screenshot 2023-06-16 125507" src="https://github.com/Prem-Kumar16/Dashboard_demo_2/assets/75419846/1b3d6b00-9763-4408-b7c0-05a5dd35d351">
+
+### Now go back to MASTER ec2 instance (Dashboard-demo-master)
+
+Run the below command to check whether the nodes are linked, if success copy the worker node name (whose role is <none>)
+
+```sh
+sudo kubectl get nodes
+```
+
+You should see an output similar to the below image
+
+<img width="566" alt="Screenshot 2023-06-16 125812" src="https://github.com/Prem-Kumar16/Dashboard_demo_2/assets/75419846/1e7728bf-6b72-481a-965a-f7939864dd2b">
+
+Now run the below command to open the vi editor of deployaws.yaml file inside the dashboard folder to change the value of nodeName spec (reference image below) to the value that you have previously copied via get node command. (The value is nothing but your worker ec2 instance's private ip address)
+
+```sh
+cd ..
+cd dashboard/
+sudo vi deployaws.yaml
+```
+
+<img width="419" alt="Screenshot 2023-06-16 130742" src="https://github.com/Prem-Kumar16/Dashboard_demo_2/assets/75419846/1589551a-0684-49b3-9802-8889a98648f6">
+
+Now run the command to start the service and pod
+
+```sh
+sudo kubectl apply -f deployaws.yaml -f service.yaml
+```
+
+Run the below command to check whether the pods is running in correct node
+
+```sh
+sudo kubectl get pods -o wide
+``
+
+The output should be similar to the below image
+
+<img width="879" alt="Screenshot 2023-06-16 131736" src="https://github.com/Prem-Kumar16/Dashboard_demo_2/assets/75419846/1cd87f4a-5b0b-4005-a36f-cf93654f3bae">
+
+Open a new tab in your browser and open http://13.127.34.56:4000/. You should see a webpage similar to the below image
+
+<img width="389" alt="Screenshot 2023-06-16 132153" src="https://github.com/Prem-Kumar16/Dashboard_demo_2/assets/75419846/90cf2e3d-5282-4349-8064-f7168cc32c8a">
+
+Now you can change any values in can input and see the changes in the dashboard
+
+<img width="960" alt="Screenshot 2023-06-16 132441" src="https://github.com/Prem-Kumar16/Dashboard_demo_2/assets/75419846/f4cd5941-4d53-433b-8a30-2274bc7e5d0b">
+
+### Cleanup
+
+From [CloudFormation](https://console.aws.amazon.com/cloudformation/home) just delete `dashboard-demo-2-SDV-stack` stack.
+
+Do not forget to delete the downloaded keypair in cloudshell by running the below command
+
+```sh
+rm keypair-for-ewaol.pem
+```
