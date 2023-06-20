@@ -2,6 +2,13 @@
 
 The repository contains the instructions and code that allows you to create a kubernetes cluster for dashboard demo using virtual can interface
 
+## Overview
+
+The below image is the detailed overview of the following demo
+
+<img width="582" alt="Screenshot 2023-06-20 220215" src="https://github.com/Prem-Kumar16/Dashboard_demo_2/assets/75419846/d1b1d8db-8cf8-4bf1-89d3-ccf3adedd0c3">
+
+
 ## THIS DEMO WILL WORK BEST ON MUMBAI (ap-south-1) region
 
 Deploy EC2 in Mumbai region
