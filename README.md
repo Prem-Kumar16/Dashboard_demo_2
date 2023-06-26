@@ -117,7 +117,7 @@ In your browser, open a new tab and open http://3.7.144.155:3000/
 
 You should see a web page similar to the image below
 
-<img width="960" alt="Screenshot 2023-06-16 122718" src="https://github.com/Prem-Kumar16/Dashboard_demo_2/assets/75419846/6bbc22e8-654a-476a-9e90-5248e3f7a25f">
+<img width="960" alt="Screenshot 2023-06-16 122718" src="https://github.com/Prem-Kumar16/Dashboard_demo_2/assets/75419846/d756a227-d958-485a-840f-361aa2d22323">
 
 Run the below command and copy the output which contains the k3s token to link master and worker node 
 
