@@ -72,15 +72,11 @@ sudo kubectl get nodes
 
 From the output of the above command, copy the node name 
 
-Now run the below command 
+Paste the node name you copied from the last command to the below command and run it (The value is nothing but your master ec2 instance's private ip address)
 
 ```sh
-sudo vi deployaws.yaml
+sudo sed -i 's/ip-172-31-11-89/<nodeName here>/g' deployaws.yaml
 ```
-
-Inside the vi editor, change the value of nodeName spec (reference image below) to the value that you have previously copied via get node command. (The value is nothing but your master ec2 instance's private ip address)
-
-<img width="374" alt="Screenshot 2023-06-16 121549" src="https://github.com/Prem-Kumar16/Dashboard_demo_2/assets/75419846/f9ab1104-e339-44cb-9047-a2661084b886">
 
 Run the below steps to log into ECR Repository for pulling images from it
 
