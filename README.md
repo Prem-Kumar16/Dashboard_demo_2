@@ -181,7 +181,7 @@ Open a new tab in your browser and open http://13.127.34.56:4000/. You should se
 
 Now you can change any values in can bus input simulator and see the changes in the digital cockpit
 
-<img width="960" alt="Screenshot 2023-06-16 132441" src="https://github.com/Prem-Kumar16/Dashboard_demo_2/assets/75419846/f4cd5941-4d53-433b-8a30-2274bc7e5d0b">
+<img width="960" alt="Screenshot 2023-06-16 132441" src="https://github.com/Prem-Kumar16/Dashboard_demo_2/assets/75419846/5a047d30-cb1a-45ec-a890-933bac58fc69">
 
 ### Cleanup
 
