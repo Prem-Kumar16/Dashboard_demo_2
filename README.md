@@ -179,6 +179,12 @@ Open a new tab in your browser and open http://13.127.34.56:4000/. You should se
 
 Now you can change any values in can bus input simulator and see the changes in the digital cockpit
 
+#### Note : The values below right, left and main circle accepts only 0,1 & 2 values. If you try to give value other than this, it will throw error message (refer the image belowp)
+
+![Screenshot (139)](https://github.com/Prem-Kumar16/Dashboard_demo_2/assets/75419846/2e20fb20-e6f2-4137-ac1e-5c73a3d362ab)
+
+Final output image : 
+
 <img width="960" alt="Screenshot 2023-06-16 132441" src="https://github.com/Prem-Kumar16/Dashboard_demo_2/assets/75419846/5a047d30-cb1a-45ec-a890-933bac58fc69">
 
 ### Cleanup
