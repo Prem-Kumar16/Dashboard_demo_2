@@ -135,7 +135,7 @@ sudo k3s-agent -t <your k3s token here> -s https://3.7.144.155:6443
 
 ### Now go back to MASTER ec2 instance (Dashboard-demo-master)
 
-Run the below command to check whether the nodes are linked, if success copy the worker node name (whose role is <none>)
+Run the below command to check whether the nodes are linked, if success copy the worker node name (whose role is "<none>")
 
 ```sh
 sudo kubectl get nodes
@@ -145,12 +145,12 @@ You should see an output similar to the below image
 
 <img width="566" alt="Screenshot 2023-06-16 125812" src="https://github.com/Prem-Kumar16/Dashboard_demo_2/assets/75419846/1e7728bf-6b72-481a-965a-f7939864dd2b">
 
-Now run the below command to open the vi editor of deployaws.yaml file inside the dashboard folder to change the value of nodeName spec (reference image below) to the value that you have previously copied via get node command. (The value is nothing but your worker ec2 instance's private ip address)
+Now run the below command inside the dashboard folder to change the value of nodeName spec (reference image below) to the value that you have previously copied via get node command. (The value is nothing but your worker ec2 instance's private ip address)
 
 ```sh
 cd ..
 cd dashboard/
-sudo vi deployaws.yaml
+sudo sed -i 's/ip-172-31-1-113/<nodeName here>/g' deployaws.yaml
 ```
 
 <img width="419" alt="Screenshot 2023-06-16 130742" src="https://github.com/Prem-Kumar16/Dashboard_demo_2/assets/75419846/1589551a-0684-49b3-9802-8889a98648f6">
