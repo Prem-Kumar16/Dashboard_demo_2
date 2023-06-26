@@ -161,6 +161,8 @@ Now run the command to start the service and pod
 sudo kubectl apply -f deployaws.yaml -f service.yaml
 ```
 
+Please wait for atleast 2 minutes for the pod to pull image and deploy
+
 Run the below command to check whether the pods is running in correct node
 
 ```sh
