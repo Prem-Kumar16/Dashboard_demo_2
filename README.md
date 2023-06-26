@@ -19,7 +19,7 @@ Please open the below link in new tab to ease the process
 
 Acknowledge the creation of the stack and press the button **Create stack** on the bottom right. 
 
-The ```dashboard-demo-2-SDV-stack``` CloudFormation stack will take about **2 minutes** to be created.
+The ```dashboard-demo-2-SDV-stack``` CloudFormation stack will take about **2 minutes** to be created. This cloudformation stack creates two ec2 instances named "Dashboard-demo-master" & "Dashboard-demo-worker" to deploy the demo, a security group, a key pair and it also associates the ec2 instances with the already created elastic IPs.
 
 ### Locally downloading the Private key file
 
