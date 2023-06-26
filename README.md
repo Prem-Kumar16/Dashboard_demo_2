@@ -113,7 +113,7 @@ sudo kubectl get pods
 sudo kubectl describe pods
 ```
 
-In your browser, open a new tab and open http://3.7.144.155:3000/
+In your browser, open a new tab and open http://3.7.144.155:3000/ (This is the Elastic IP where your ec2 instance consisting the demo will be running)
 
 You should see a web page similar to the image below
 
