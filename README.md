@@ -180,7 +180,7 @@ Open a new tab in your browser and open http://13.127.34.56:4000/. You should se
 
 Now you can change any values in can bus input simulator and see the changes in the digital cockpit
 
-#### Note : The values below right, left and main circle accepts only 0,1 & 2 values. If you try to give value other than this, it will throw error message (refer the image belowp)
+#### Note : The values below right, left and main circle accepts only 0,1 & 2 values. If you try to give value other than this, it will throw error message (refer the image below)
 
 ![Screenshot (139)](https://github.com/Prem-Kumar16/Dashboard_demo_2/assets/75419846/2e20fb20-e6f2-4137-ac1e-5c73a3d362ab)
 
@@ -195,5 +195,5 @@ From [CloudFormation](https://console.aws.amazon.com/cloudformation/home) just d
 Do not forget to delete the downloaded keypair in cloudshell by running the below command
 
 ```sh
-rm keypair-for-ewaol.pem
+rm keypair-for-ewaol-demo2.pem
 ```
