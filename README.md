@@ -28,7 +28,7 @@ Follow the steps below to download the private .pem key file to SSH into the ins
 Open cloudshell and run the following command
 
 ```sh 
-aws ec2 describe-key-pairs --filters Name=key-name,Values=keypair-for-ewaol --query KeyPairs[*].KeyPairId --output text
+aws ec2 describe-key-pairs --filters Name=key-name,Values=keypair-for-ewaol-demo2 --query KeyPairs[*].KeyPairId --output text
 ```
 
 The output will be the key ID. Note down it
@@ -38,14 +38,15 @@ Run the below command to save .pem file in the cloudshell directory
 Change the keyid paramater to the output of previous command
 
 ```sh
-aws ssm get-parameter --name /ec2/keypair/<keyid here> --with-decryption --query Parameter.Value --output text > keypair-for-ewaol.pem
+aws ssm get-parameter --name /ec2/keypair/<keyid here> --with-decryption --query Parameter.Value --output text > keypair-for-ewaol-demo2.pem
 ```
 
-<img width="911" alt="Screenshot 2023-06-16 085413" src="https://github.com/Prem-Kumar16/Dashboard_demo_2/assets/75419846/502fba9f-99d6-4a10-a806-df7239149409">
+<img width="960" alt="Screenshot 2023-06-29 195054" src="https://github.com/Prem-Kumar16/Dashboard_demo_2/assets/75419846/2e11c1ce-b36f-4268-a608-1b731b3324e5">
 
-Go to actions -> download file and paste this path "/home/cloudshell-user/keypair-for-ewaol.pem" inside the path field to save .pem key file locally
 
-<img width="516" alt="Screenshot 2023-06-16 090012" src="https://github.com/Prem-Kumar16/Dashboard_demo_2/assets/75419846/58580da4-1891-44c1-8f33-a968324f8a4e">
+Go to actions -> download file and paste this path "/home/cloudshell-user/keypair-for-ewaol-demo2.pem" inside the path field to save .pem key file locally
+
+<img width="456" alt="Screenshot 2023-06-29 195242" src="https://github.com/Prem-Kumar16/Dashboard_demo_2/assets/75419846/a20936e2-5085-4f3b-a7ff-036fc899876f">
 
 If you go to ec2 instances page, you will find two newly created instances named "Dashboard-demo-master" & "Dashboard-demo-worker". SSH into the instances using the key file  that you have previously downloaded
 
