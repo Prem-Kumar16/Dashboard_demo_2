@@ -15,7 +15,7 @@ Deploy EC2 in Mumbai region
 
 Please open the below link in new tab to ease the process
 
-[![Launch](https://samdengler.github.io/cloudformation-launch-stack-button-svg/images/ap-south-1.svg)](https://ap-south-1.console.aws.amazon.com/cloudformation/home?region=ap-south-1#/stacks/quickcreate?templateURL=https%3A%2F%2Fs3.ap-south-1.amazonaws.com%2Fcf-templates-fui01m96flo3-ap-south-1%2F2023-06-16T080737.467Zxme-demo-2-dashboard-ec2-template.yml&stackName=dashboard-demo-2-SDV-stack)
+[![Launch](https://samdengler.github.io/cloudformation-launch-stack-button-svg/images/ap-south-1.svg)](https://ap-south-1.console.aws.amazon.com/cloudformation/home?region=ap-south-1#/stacks/quickcreate?templateURL=https%3A%2F%2Fs3.ap-south-1.amazonaws.com%2Fcf-templates-fui01m96flo3-ap-south-1%2F2023-06-29T125651.979Z84n-demo-2-dashboard-ec2-template.yml&stackName=dashboard-demo-2-SDV-stack)
 
 Acknowledge the creation of the stack and press the button **Create stack** on the bottom right. 
 
