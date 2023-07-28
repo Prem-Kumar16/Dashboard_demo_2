@@ -79,29 +79,17 @@ Paste the node name you copied from the last command to the below command and ru
 sudo sed -i 's/ip-172-31-11-89/<nodeName here>/g' deployaws.yaml
 ```
 
-Run the below steps to log into ECR Repository for pulling images from it
+After the aws configuration step, launch the below cloudformation stack which will create all the necessary developer tools and creates a whole codepipeline for data simulator webpage.
 
-```sh
-AWS_DEFAULT_REGION=ap-south-1
-PASS=$(aws ecr get-login-password --region $AWS_DEFAULT_REGION)
-```
+Please open the below link in new tab to ease the process
 
-Create a kubectl secret 
+[![Launch](https://samdengler.github.io/cloudformation-launch-stack-button-svg/images/ap-south-1.svg)](https://ap-south-1.console.aws.amazon.com/cloudformation/home?region=ap-south-1#/stacks/quickcreate?templateURL=https%3A%2F%2Fs3.ap-south-1.amazonaws.com%2Fcf-templates-fui01m96flo3-ap-south-1%2F2023-07-28T030913.668Zm64-codepipeline_cfn_template_demo2_datasim.yaml&stackName=codepipeline-datasim-demo2)
 
-```sh
-sudo kubectl create secret docker-registry regcred \
-   --docker-server=783584839454.dkr.ecr.ap-south-1.amazonaws.com \
-   --docker-username=AWS \
-   --docker-password=$PASS
-```
+Acknowledge the creation of the stack and press the button Create stack on the bottom right.
 
-The below command helps you to run the pod
+The ```codepipeline-datasim-demo2``` CloudFormation stack will take about 2 minutes to be created.
 
-```sh
-sudo kubectl apply -f deployaws.yaml -f service.yaml
-```
-
-Please wait for atleast 2 minutes for the pod to pull image and deploy
+After the creation of the stack, go to the codePipeline management console, You will see a pipeline named **autodatasimulatordemocodepipeline** created. Wait for it to be completed.
 
 If you want to know the status of pods, the below commands will help you
 
