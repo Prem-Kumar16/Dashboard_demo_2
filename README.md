@@ -186,7 +186,28 @@ Final output image :
 
 ### Cleanup
 
-From [CloudFormation](https://console.aws.amazon.com/cloudformation/home) just delete `dashboard-demo-2-SDV-stack` stack.
+From [CloudFormation](https://console.aws.amazon.com/cloudformation/home) delete `codepipeline-datasim-demo2` stack.
+
+If the delete is failed, go to the resources tab under `codepipeline-datasim-demo2` stack and open the ECR Repository in a new tab.
+
+<img width="367" alt="Screenshot 2023-07-27 070006" src="https://github.com/Prem-Kumar16/Dashboard_demo_1/assets/75419846/4f20c65e-81b1-47e3-9d02-40e1d1919af3">
+
+
+Choose delete stack again. This time a message appears to retain the resources. Choose to retain and click delete.
+
+<img width="473" alt="Screenshot 2023-07-28 080817" src="https://github.com/Prem-Kumar16/Dashboard_demo_2/assets/75419846/5f600728-927c-4055-8b97-3aedabaa330e">
+
+
+<img width="451" alt="Screenshot 2023-07-28 080937" src="https://github.com/Prem-Kumar16/Dashboard_demo_2/assets/75419846/471f1570-e5c6-4ff9-9ca9-120f38b02577">
+
+
+Now the `codepipeline-datasim-demo2` stack will be deleted.
+
+Go to the ECR Repo page that you have already opened in new tab and delete the **autodatasimulatordemo** repo.
+
+Do the same for deleting `codepipeline-dash-demo2` stack.
+
+Finally from [CloudFormation](https://console.aws.amazon.com/cloudformation/home) just delete `dashboard-demo-2-SDV-stack` stack.
 
 Do not forget to delete the downloaded keypair in cloudshell by running the below command
 
