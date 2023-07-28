@@ -144,13 +144,21 @@ sudo sed -i 's/ip-172-31-1-113/<nodeName here>/g' deployaws.yaml
 
 <img width="419" alt="Screenshot 2023-06-16 130742" src="https://github.com/Prem-Kumar16/Dashboard_demo_2/assets/75419846/1589551a-0684-49b3-9802-8889a98648f6">
 
-Now run the command to start the service and pod
 
-```sh
-sudo kubectl apply -f deployaws.yaml -f service.yaml
-```
+After this step, launch the below cloudformation stack which will create all the necessary developer tools and creates a whole codepipeline for dashboard webpage.
 
-Please wait for atleast 2 minutes for the pod to pull image and deploy
+Please open the below link in new tab to ease the process
+
+[![Launch](https://samdengler.github.io/cloudformation-launch-stack-button-svg/images/ap-south-1.svg)](https://ap-south-1.console.aws.amazon.com/cloudformation/home?region=ap-south-1#/stacks/quickcreate?templateURL=https%3A%2F%2Fs3.ap-south-1.amazonaws.com%2Fcf-templates-fui01m96flo3-ap-south-1%2F2023-07-28T034339.512Z2g5-codepipeline_cfn_template_demo2_dash.yaml&stackName=codepipeline-dash-demo2)
+
+Acknowledge the creation of the stack and press the button Create stack on the bottom right.
+
+The ```codepipeline-dash-demo2``` CloudFormation stack will take about 2 minutes to be created.
+
+After the creation of the stack, go to the codePipeline management console, You will see a pipeline named **autodashboarddemocodepipeline** created. Wait for it to be completed.
+
+<img width="662" alt="Screenshot 2023-07-28 091559" src="https://github.com/Prem-Kumar16/Dashboard_demo_2/assets/75419846/4cea44e2-54b7-4876-81f1-f9ec2f2e0bb3">
+
 
 Run the below command to check whether the pods is running in correct node
 
