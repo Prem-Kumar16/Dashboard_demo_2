@@ -9,6 +9,9 @@ spec:
     - name: datasimulatordemo
       image: 783584839454.dkr.ecr.ap-south-1.amazonaws.com/autodatasimulatordemo:latest
       imagePullPolicy: Always
+      env:
+       - name: CAN_IF
+         value: "vcan0"
       ports:
        - name: http
          containerPort: 3000
