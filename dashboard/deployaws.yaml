@@ -9,6 +9,9 @@ spec:
     - name: dashboarddemo
       image: 783584839454.dkr.ecr.ap-south-1.amazonaws.com/autodashboarddemo:latest
       imagePullPolicy: Always
+      env:
+       - name: CAN_IF
+         value: "vcan0"
       ports:
        - name: http
          containerPort: 4000
